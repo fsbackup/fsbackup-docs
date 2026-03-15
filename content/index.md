@@ -160,7 +160,9 @@ Three data classes, one system
   Large archives that change infrequently: photo libraries, video collections, media. Default: monthly. Mirroring is optional.
   :::
 
+  ::div{class="text-center text-sm text-muted w-full mt-4"}
   All class schedules, snapshot tiers, retention periods, and mirror settings are fully configurable to fit your home lab.
+  ::
 ::
 
 ::u-page-section
