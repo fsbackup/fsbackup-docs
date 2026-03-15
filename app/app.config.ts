@@ -39,6 +39,12 @@ export default defineAppConfig({
       'to': 'https://github.com/fsbackup/fsbackup',
       'target': '_blank',
       'aria-label': 'fsbackup on GitHub'
+    }, {
+      'icon': 'i-lucide-heart',
+      'label': 'Sponsor',
+      'to': 'https://github.com/sponsors/ikluhsman',
+      'target': '_blank',
+      'aria-label': 'Sponsor on GitHub'
     }]
   },
   toc: {
