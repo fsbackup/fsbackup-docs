@@ -18,7 +18,7 @@ useSeoMeta({
 })
 
 defineOgImageComponent('Docs', {
-  headline: 'fsbackup'
+  headline: 'Frozen snapshot backups'
 })
 </script>
 
