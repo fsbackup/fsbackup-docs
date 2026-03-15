@@ -74,7 +74,7 @@ Everything your home lab needs
   Mirror to a second drive
 
   #description
-  Automatically mirrors primary snapshots to a secondary drive. Configurable per data class — large photo archives can be excluded.
+  Automatically mirrors primary snapshots to a secondary drive. Configurable per data class — large archives can be excluded to save space.
   :::
 
   :::u-page-feature
@@ -154,10 +154,10 @@ Three data classes, one system
   icon: i-lucide-image
   ---
   #title
-  class3 — Photos
+  class3 — Archives
 
   #description
-  Large photo archives that change infrequently. Runs monthly, excluded from mirroring to save secondary drive space.
+  Large archives that change infrequently: photo libraries, video collections, media. Runs monthly. Mirroring is optional — exclude large archives to save secondary drive space.
   :::
 ::
 
