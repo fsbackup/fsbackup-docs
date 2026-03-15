@@ -1,0 +1,3 @@
+[submodule "fsbackup-app"]
+	path = fsbackup-app
+	url = git@github.com:fsbackup/fsbackup.git
