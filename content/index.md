@@ -135,7 +135,7 @@ Three data classes, one system
   class1 — Application data
 
   #description
-  Frequently changing data: app volumes, databases, personal files. Backed up daily with the full snapshot tier stack.
+  Frequently changing data: app volumes, databases, personal files. Default: daily with the full snapshot tier stack.
   :::
 
   :::u-page-feature
@@ -146,7 +146,7 @@ Three data classes, one system
   class2 — Infrastructure config
 
   #description
-  Docker stack files, nginx, DNS zone files, and other config. Daily backups — lightweight, fast, always current.
+  Docker stack files, nginx, DNS zone files, and other config. Default: daily — lightweight, fast, always current.
   :::
 
   :::u-page-feature
@@ -157,8 +157,10 @@ Three data classes, one system
   class3 — Archives
 
   #description
-  Large archives that change infrequently: photo libraries, video collections, media. Runs monthly. Mirroring is optional — exclude large archives to save secondary drive space.
+  Large archives that change infrequently: photo libraries, video collections, media. Default: monthly. Mirroring is optional.
   :::
+
+  All class schedules, snapshot tiers, retention periods, and mirror settings are fully configurable to fit your home lab.
 ::
 
 ::u-page-section
