@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     'nuxt-og-image',
+    '@nuxtjs/sitemap',
     'nuxt-llms',
     '@nuxtjs/mcp-toolkit'
   ],
