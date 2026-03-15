@@ -8,6 +8,9 @@ seo:
 ---
 orientation: horizontal
 ---
+#headline
+Frozen snapshot backups
+
 #title
 Snapshot backups for your [home lab]{.text-primary}.
 

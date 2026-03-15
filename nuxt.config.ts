@@ -38,6 +38,12 @@ export default defineNuxtConfig({
     }
   },
 
+  vite: {
+    server: {
+      allowedHosts: true
+    }
+  },
+
   experimental: {
     asyncContext: true
   },

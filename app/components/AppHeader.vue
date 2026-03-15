@@ -21,13 +21,10 @@ const { header } = useAppConfig()
       v-if="header?.logo?.dark || header?.logo?.light || header?.title"
       #title
     >
-      <UColorModeImage
-        v-if="header?.logo?.dark || header?.logo?.light"
-        :light="header?.logo?.light!"
-        :dark="header?.logo?.dark!"
-        :alt="header?.logo?.alt"
-        class="h-6 w-auto shrink-0"
-      />
+      <div v-if="header?.logo?.dark || header?.logo?.light" class="flex items-center gap-2 shrink-0">
+        <img src="/icon.svg" alt="fsbackup icon" class="h-7 w-auto" />
+        <span class="font-semibold text-base tracking-tight">fsbackup</span>
+      </div>
 
       <span v-else-if="header?.title">
         {{ header.title }}
