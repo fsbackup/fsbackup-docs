@@ -54,8 +54,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
-        '/',
-        '/__og-image__/static/og.png'
+        '/'
       ],
       crawlLinks: true,
       autoSubfolderIndex: false
