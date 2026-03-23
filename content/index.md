@@ -115,10 +115,10 @@ Everything your home lab needs
   icon: i-lucide-monitor
   ---
   #title
-  Web UI
+  Web UI + PWA
 
   #description
-  Browse snapshots, trigger jobs, restore files, view S3 archives, and monitor job status from a FastAPI + HTMX web interface.
+  Browse snapshots, trigger jobs, restore files, view S3 archives, and monitor job status from a mobile-friendly FastAPI + HTMX web interface. Install as a PWA for quick access from your phone.
   :::
 
   :::u-page-feature
