@@ -17,7 +17,7 @@ useSeoMeta({
   ogDescription: description
 })
 
-defineOgImageComponent('DocsOg', {
+defineOgImageComponent('Docs', {
   headline: 'Frozen snapshot backups'
 })
 </script>
