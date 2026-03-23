@@ -68,10 +68,21 @@ Everything your home lab needs
 
   :::u-page-feature
   ---
+  icon: i-lucide-copy-check
+  ---
+  #title
+  ZFS deduplication
+
+  #description
+  ZFS block-level dedup eliminates redundant data across all snapshots on the pool. Identical blocks — common across weekly and monthly history — are stored only once.
+  :::
+
+  :::u-page-feature
+  ---
   icon: i-lucide-hard-drive
   ---
   #title
-  Built-in mirroring
+  Redundant storage
 
   #description
   Run a ZFS mirrored vdev and both drives are always in sync — no separate mirror job needed. Lose a disk, replace it, and ZFS resilvers automatically.
