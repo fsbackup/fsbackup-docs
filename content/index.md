@@ -79,6 +79,17 @@ Everything your home lab needs
 
   :::u-page-feature
   ---
+  icon: i-lucide-shield-check
+  ---
+  #title
+  Self-healing storage
+
+  #description
+  ZFS checksums every block and automatically repairs corruption using the mirror copy. Silent data rot is detected and fixed during regular scrubs — no manual intervention needed.
+  :::
+
+  :::u-page-feature
+  ---
   icon: i-lucide-hard-drive
   ---
   #title
