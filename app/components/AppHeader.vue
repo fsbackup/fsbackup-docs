@@ -21,8 +21,15 @@ const { header } = useAppConfig()
       v-if="header?.logo?.dark || header?.logo?.light || header?.title"
       #title
     >
-      <div v-if="header?.logo?.dark || header?.logo?.light" class="flex items-center gap-2 shrink-0">
-        <img src="/icon.svg" alt="fsbackup icon" class="h-7 w-auto" />
+      <div
+        v-if="header?.logo?.dark || header?.logo?.light"
+        class="flex items-center gap-2 shrink-0"
+      >
+        <img
+          src="/icon.svg"
+          alt="fsbackup icon"
+          class="h-7 w-auto"
+        >
         <span class="font-semibold text-base tracking-tight">fsbackup</span>
       </div>
 

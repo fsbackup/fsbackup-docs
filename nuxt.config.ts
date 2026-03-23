@@ -12,12 +12,6 @@ export default defineNuxtConfig({
     '@nuxtjs/mcp-toolkit'
   ],
 
-  fonts: {
-    families: [
-      { name: 'Inter', provider: 'google' }
-    ]
-  },
-
   devtools: {
     enabled: true
   },
@@ -39,12 +33,6 @@ export default defineNuxtConfig({
     }
   },
 
-  vite: {
-    server: {
-      allowedHosts: true
-    }
-  },
-
   experimental: {
     asyncContext: true
   },
@@ -61,6 +49,12 @@ export default defineNuxtConfig({
     }
   },
 
+  vite: {
+    server: {
+      allowedHosts: true
+    }
+  },
+
   eslint: {
     config: {
       stylistic: {
@@ -68,6 +62,12 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
+  },
+
+  fonts: {
+    families: [
+      { name: 'Inter', provider: 'google' }
+    ]
   },
 
   icon: {
