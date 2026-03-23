@@ -1,7 +1,7 @@
 ---
 seo:
-  title: fsbackup — Rsync snapshot backup for home labs
-  description: Docker-native rsync backup system with snapshot tiers, S3 offsite export, and a web UI. Built for home labs.
+  title: fsbackup — ZFS-native backup for home labs
+  description: ZFS-native rsync backup system with snapshot history, S3 offsite export, and a web UI. Built for home labs.
 ---
 
 ::u-page-hero
@@ -9,13 +9,13 @@ seo:
 orientation: horizontal
 ---
 #headline
-Frozen snapshot backups
+ZFS-native backups
 
 #title
 Snapshot backups for your [home lab]{.text-primary}.
 
 #description
-fsbackup is an rsync-based snapshot backup system that runs in Docker. Take daily snapshots over SSH, mirror to a second drive, export to S3, and manage everything from a clean web UI.
+fsbackup pulls backups from your machines over SSH, stores them as ZFS snapshots, and exports to S3. Daily, weekly, and monthly retention — all managed from a clean web UI.
 
 #links
   :::u-button
@@ -45,7 +45,7 @@ fsbackup is an rsync-based snapshot backup system that runs in Docker. Take dail
   filename: terminal
   ---
   ```bash
-  docker pull ghcr.io/fsbackup/fsbackup:latest
+  curl -fsSL https://raw.githubusercontent.com/fsbackup/fsbackup/main/bin/fs-install.sh | sudo bash
   ```
   :::
 ::
@@ -57,13 +57,35 @@ Everything your home lab needs
 #features
   :::u-page-feature
   ---
-  icon: i-lucide-camera
+  icon: i-lucide-layers
   ---
   #title
-  Snapshot tiers
+  ZFS snapshot history
 
   #description
-  Daily, weekly, monthly, and annual snapshot tiers with automatic promotion. Snapshots are incremental via rsync `--link-dest`.
+  Each successful rsync run creates a ZFS snapshot. Daily, weekly, monthly, and annual retention — managed automatically by `fs-retention.sh`. Browse any point in time from the web UI.
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-lucide-copy-check
+  ---
+  #title
+  ZFS deduplication
+
+  #description
+  ZFS block-level dedup eliminates redundant data across all snapshots on the pool. Identical blocks — common across weekly and monthly history — are stored only once.
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-lucide-shield-check
+  ---
+  #title
+  Self-healing storage
+
+  #description
+  ZFS checksums every block and automatically repairs corruption using the mirror copy. Silent data rot is detected and fixed during regular scrubs — no manual intervention needed.
   :::
 
   :::u-page-feature
@@ -71,10 +93,10 @@ Everything your home lab needs
   icon: i-lucide-hard-drive
   ---
   #title
-  Mirror to a second drive
+  Redundant storage
 
   #description
-  Automatically mirrors primary snapshots to a secondary drive. Configurable per data class — large archives can be excluded to save space.
+  Run a ZFS mirrored vdev and both drives are always in sync — no separate mirror job needed. Lose a disk, replace it, and ZFS resilvers automatically.
   :::
 
   :::u-page-feature
@@ -85,7 +107,7 @@ Everything your home lab needs
   S3 offsite export
 
   #description
-  Encrypts and uploads weekly, monthly, and annual snapshots to S3 using age public-key encryption. Private key stays off-server.
+  Encrypts and uploads weekly and monthly snapshots to S3 using age public-key encryption. Private key stays off-server. Idempotent — safe to re-run.
   :::
 
   :::u-page-feature
@@ -96,7 +118,7 @@ Everything your home lab needs
   Web UI
 
   #description
-  Browse snapshots, run jobs manually, restore files, and monitor job status from a FastAPI + HTMX web interface.
+  Browse snapshots, trigger jobs, restore files, view S3 archives, and monitor job status from a FastAPI + HTMX web interface.
   :::
 
   :::u-page-feature
@@ -107,18 +129,18 @@ Everything your home lab needs
   Prometheus metrics
 
   #description
-  Emits `.prom` files for node_exporter. Track job status, snapshot counts, orphans, S3 uploads, and more in Grafana.
+  Emits `.prom` files for node_exporter. Track job status, snapshot counts, orphans, S3 uploads, dataset sizes, and more in Grafana.
   :::
 
   :::u-page-feature
   ---
-  icon: i-lucide-container
+  icon: i-lucide-timer
   ---
   #title
-  Docker-native
+  systemd-native scheduling
 
   #description
-  Runs as a single Docker container. supercronic handles scheduling — no systemd required. Pull from ghcr.io and go.
+  Per-class runner timers managed by systemd. Schedules are configured in `fsbackup.conf` and applied with `fs-schedule-apply.sh` — no crontab editing required.
   :::
 ::
 
@@ -127,7 +149,7 @@ Everything your home lab needs
 Three data classes, one system
 
 #description
-All class schedules, snapshot tiers, retention periods, and mirror settings are fully configurable to fit your home lab.
+All class schedules, snapshot tiers, and retention periods are fully configurable to fit your home lab.
 
 #features
   :::u-page-feature
@@ -138,7 +160,7 @@ All class schedules, snapshot tiers, retention periods, and mirror settings are 
   class1 — Application data
 
   #description
-  Frequently changing data: app volumes, databases, personal files. Default: daily with the full snapshot tier stack.
+  Frequently changing data: app volumes, databases, personal files. Default: daily, weekly, and monthly snapshots.
   :::
 
   :::u-page-feature
@@ -160,7 +182,7 @@ All class schedules, snapshot tiers, retention periods, and mirror settings are 
   class3 — Archives
 
   #description
-  Large archives that change infrequently: photo libraries, video collections, media. Default: monthly. Mirroring is optional.
+  Large archives that change infrequently: photo libraries, video collections, media. Default: monthly snapshots.
   :::
 
 ::
@@ -178,7 +200,7 @@ All class schedules, snapshot tiers, retention periods, and mirror settings are 
       variant: subtle
       icon: i-simple-icons-github
   title: Ready to back up your home lab?
-  description: One container, one config file, all your machines covered.
+  description: One installer, one config file, all your machines covered.
   ---
   :::
 ::
